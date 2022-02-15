@@ -25,7 +25,6 @@ public class EnemyMovement : MonoBehaviour
         //print(isMoving);
         if (!isMoving)
         {
-            Debug.Log("going to destroy now");
             Destroy(gameObject);
         }
     }
