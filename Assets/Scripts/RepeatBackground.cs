@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/***********************************
+Goes on background image
+***********************************/
 public class RepeatBackground : MonoBehaviour
 {
     private Vector3 startPos;
@@ -15,9 +18,9 @@ public class RepeatBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(repeatHeight);
-        Debug.Log(startPos.y);
-        Debug.Log(transform.position.y);
+        //Debug.Log(repeatHeight);
+        //Debug.Log(startPos.y);
+        //Debug.Log(transform.position.y);
         if(transform.position.y < startPos.y - repeatHeight){
             transform.position = startPos;
         }

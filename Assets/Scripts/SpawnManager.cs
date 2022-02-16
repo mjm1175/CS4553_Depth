@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/***********************************
+Goes on Game Manager object
+Controls the spawning of enemies and powerups as specified from the arrays in GlobalVars
+***********************************/
 public class SpawnManager : MonoBehaviour
 {
     public GameObject trigPrefab;
@@ -11,6 +15,8 @@ public class SpawnManager : MonoBehaviour
     public Transform lane1SP;
     public Transform lane2SP;
     public Transform lane3SP;
+
+    private Quaternion rotationVec = Quaternion.Euler(0,0,0);
 
     private int thisSpawnItem = 0;
     // Start is called before the first frame update
@@ -43,13 +49,13 @@ public class SpawnManager : MonoBehaviour
             switch (GlobalVars.nextSpawn[thisSpawnItem])
             {
                 case 't':
-                    Instantiate(trigPrefab, spawnHere);
+                    Instantiate(trigPrefab, spawnHere.position, rotationVec);
                     break;
                 case 'c':
-                    Instantiate(circPrefab, spawnHere);
+                    Instantiate(circPrefab, spawnHere.position, rotationVec);
                     break;
                 case 'x':
-                    Instantiate(crossPrefab, spawnHere);
+                    Instantiate(crossPrefab, spawnHere.position, rotationVec);
                     break;
                 //default:
             }

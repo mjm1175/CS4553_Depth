@@ -3,22 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /***********************************
-Goes on Cross, Trig, and Circle Enemy prefabs
-Produces their downward movement on the screen.
-Note: smaller speed results in faster movement
+Goes on Cross Bullet and Player Bullet prefabs
+Public var endPos is set on instantiation and used to determine a specific end position for the bullet to move towards
+Note: smaller speed results in faster movement;
 ***********************************/
-public class EnemyMovement : MonoBehaviour
+public class BulletMove : MonoBehaviour
 {
     private Vector3 startPos;
-    private Vector3 endPos;
+    public Vector3 endPos;
+
     private bool isMoving;
-    public float speed = 10.0f;
+    public float speed = 20.0f;
     void Start()
     {
         startPos = transform.position;
-        endPos.x = startPos.x;
-        endPos.z = startPos.z;
-        endPos.y = startPos.y - 5.8f;
 
         isMoving = true;
         StartCoroutine(Move());
