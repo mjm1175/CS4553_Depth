@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
         startPos = transform.position;
         endPos.x = startPos.x;
         endPos.z = startPos.z;
-        endPos.y = startPos.y - 5.8f;
+        endPos.y = startPos.y - 6.5f;
 
         isMoving = true;
         StartCoroutine(Move());
@@ -44,6 +44,25 @@ public class EnemyMovement : MonoBehaviour
             yield return null;
         }
         isMoving = false;
+        yield return null;
+    }
+
+    public void Die(){
+        StartCoroutine(DeathScene());
+    }
+
+    IEnumerator DeathScene(){
+        int i = 0;
+        while(i < 1){
+            Transform explosion = gameObject.transform.GetChild(0);
+            //ParticleSystem explosion = gameObject.GetComponentInChildren<ParticleSystem>();
+            if (explosion != null){
+                explosion.gameObject.SetActive(true);
+            }
+            i++;
+            yield return new WaitForSeconds(0.5f);
+        }
+        Destroy(gameObject);
         yield return null;
     }
 }

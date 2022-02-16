@@ -10,7 +10,8 @@ public class EnemyHit : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Enemy")){
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<EnemyMovement>().Die();
+            //Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }

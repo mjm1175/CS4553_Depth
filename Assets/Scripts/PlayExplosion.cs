@@ -6,8 +6,8 @@ public class PlayExplosion : MonoBehaviour
 {
     public ParticleSystem explosion;
 
-    void OnDestroy(){
+    /*void OnDestroy(){
         Debug.Log("On destroy reached");
         explosion.Play();
-    }
+    }*/
 }

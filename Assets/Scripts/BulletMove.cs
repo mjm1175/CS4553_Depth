@@ -14,6 +14,8 @@ public class BulletMove : MonoBehaviour
 
     private bool isMoving;
     public float speed = 20.0f;
+
+    private float rotationSpeed = 720;
     void Start()
     {
         startPos = transform.position;
@@ -29,6 +31,10 @@ public class BulletMove : MonoBehaviour
         if (!isMoving)
         {
             Destroy(gameObject);
+        } else {
+            Vector3 relativePos = endPos - transform.position;
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, relativePos);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
