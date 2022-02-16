@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 /***********************************
 Goes on player object
@@ -19,6 +21,7 @@ public class LoseLife : MonoBehaviour
                 life3.SetActive(false);
                 //Debug.Log("life 3");
                 gameObject.SetActive(false);
+                Invoke("LoadGameOver", 1f); // call the LoadGameOver() after a short delay of 1 sec
                 break;
             case 2:
                 GlobalVars.lives--;
@@ -32,5 +35,10 @@ public class LoseLife : MonoBehaviour
                 break;
             //default:
         }
+    }
+
+    void LoadGameOver() // load game over scene after third life is lost
+    {
+        SceneManager.LoadScene("Game Over");
     }
 }
