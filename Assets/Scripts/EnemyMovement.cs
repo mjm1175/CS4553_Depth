@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /***********************************
-Goes on Cross, Trig, and Circle Enemy prefabs
+Goes on Cross, Trig, and Circle Enemy prefabs   --> added to shield prefab too 
 Produces their downward movement on the screen.
 Note: smaller speed results in faster movement
 ***********************************/

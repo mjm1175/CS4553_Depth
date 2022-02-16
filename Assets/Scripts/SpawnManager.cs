@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject crossPrefab;
     public GameObject circPrefab;
 
+    public GameObject shieldPrefab;
+
     public Transform lane1SP;
     public Transform lane2SP;
     public Transform lane3SP;
@@ -56,6 +58,9 @@ public class SpawnManager : MonoBehaviour
                     break;
                 case 'x':
                     Instantiate(crossPrefab, spawnHere.position, rotationVec);
+                    break;
+                case 's': //shield
+                    Instantiate(shieldPrefab, spawnHere.position, rotationVec);
                     break;
                 //default:
             }

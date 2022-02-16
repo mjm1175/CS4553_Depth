@@ -29,7 +29,7 @@ public class CrossBehavior : MonoBehaviour
             bullet2.GetComponent<BulletMove>().endPos = lane2;
             bullet3.GetComponent<BulletMove>().endPos = lane3;
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(2.0f); 
         }
     }
 }
