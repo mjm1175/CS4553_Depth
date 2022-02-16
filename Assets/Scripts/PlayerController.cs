@@ -13,15 +13,26 @@ public class PlayerController : MonoBehaviour
     public Transform lane3Pos;
     private int currentLane = 2;
     private bool isMoving = false;
+    private bool isRecharging = false;
+    private Animator playerAnim;
+
+    public float coolDownTime = 1.0f;
     public float speed = 0.5f;
     public GameObject bullet;
+
+    void Start(){
+        playerAnim = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)){
+        if (Input.GetKeyDown(KeyCode.Space) && !isRecharging){
             GameObject thisBullet = Instantiate(bullet, transform);
             thisBullet.GetComponent<BulletMove>().endPos = new Vector3(transform.position.x, 3.07f, 0);
+            isRecharging = true;
+            
+
         }
         if (Input.GetKey(KeyCode.LeftArrow) && !isMoving){
             switch (currentLane)
@@ -71,6 +82,12 @@ public class PlayerController : MonoBehaviour
                 //default:
             }
         }
+        if(coolDownTime < 0){
+            isRecharging = false;
+            coolDownTime = 1.0f;
+        }
+        coolDownTime -= Time.deltaTime;
+        playerAnim.SetBool("isRecharging_b", isRecharging);
     }
 
 
