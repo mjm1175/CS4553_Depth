@@ -16,14 +16,27 @@ public class PlayerController : MonoBehaviour
     private bool isRecharging = false;
     private Animator playerAnim;
 
-    public float coolDownTime = 1.0f;
+    public float coolDownTime = 1.5f;
     public float speed = 0.5f;
     public GameObject bullet;
 
     public AudioSource shootSound;
 
+    private float defaultCD;//const
+    private float currCD;
+
+    private float fireIncrementCD = 0.8f;
+    private float extraResetCD = 0.8f;
+
+    private float fireTimer;
+    private float resetTimer;
+
     void Start(){
         playerAnim = GetComponent<Animator>();
+        defaultCD = coolDownTime;
+        currCD = defaultCD;
+        fireTimer = currCD;
+        resetTimer = fireTimer + extraResetCD;
     }
 
     // Update is called once per frame
@@ -61,7 +74,8 @@ public class PlayerController : MonoBehaviour
                 //default:
             }
 
-        } else if (Input.GetKey(KeyCode.RightArrow) && !isMoving){
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) && !isMoving){
             switch (currentLane)
             {
                 // from lane 1 to lane 2
@@ -85,12 +99,45 @@ public class PlayerController : MonoBehaviour
                 //default:
             }
         }
-        if(coolDownTime < 0){
-            isRecharging = false;
-            coolDownTime = 1.0f;
+
+
+        if (isRecharging)
+        {
+            fireTimer -= Time.deltaTime;
         }
-        coolDownTime -= Time.deltaTime;
+
+        resetTimer -= Time.deltaTime;
+
+
+        if (fireTimer < 0 && resetTimer < 0)
+        {//fully reset
+            isRecharging = false;
+            fireTimer = currCD;
+            resetTimer = fireTimer + extraResetCD;
+        }
+        else if (fireTimer < 0 && resetTimer > 0)//rapid fire
+        {
+            isRecharging = false;
+            currCD = currCD + fireIncrementCD;
+            fireTimer = currCD;
+            resetTimer = fireTimer + extraResetCD;
+
+        }
+
+        if (resetTimer < 0)
+        {
+            if (currCD > defaultCD)
+            {
+                currCD -= Time.deltaTime;
+            }
+            if (currCD < defaultCD)
+            {
+                currCD = defaultCD;
+            }
+        }
         playerAnim.SetBool("isRecharging_b", isRecharging);
+
+        Debug.Log(resetTimer);
     }
 
 
