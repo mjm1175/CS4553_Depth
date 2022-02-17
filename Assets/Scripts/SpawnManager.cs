@@ -14,6 +14,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject circPrefab;
 
     public GameObject shieldPrefab;
+    public GameObject lifePrefab;
 
     public Transform lane1SP;
     public Transform lane2SP;
@@ -72,7 +73,11 @@ public class SpawnManager : MonoBehaviour
                     case 's': //shield
                         Instantiate(shieldPrefab, spawnHere.position, rotationVec);
                         break;
-                    //default:
+                    case 'l': //life 
+                        Instantiate(lifePrefab, spawnHere.position, rotationVec);
+                        break;
+
+                        //default:
                 }
 
                 thisSpawnItem++;

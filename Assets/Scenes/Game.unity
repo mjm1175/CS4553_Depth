@@ -675,6 +675,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &776582892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776582890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2a556c1f362f4e84a3b1c0842f3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!199 &776582896
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5499,6 +5511,7 @@ MonoBehaviour:
   crossPrefab: {fileID: 5168266413125768303, guid: f4cd0978f2710466db29e044aeb99fbc, type: 3}
   circPrefab: {fileID: 3176099785670097907, guid: 8c8cfbad151df403da17b42c099a0268, type: 3}
   shieldPrefab: {fileID: 5088459388886652028, guid: 7889686828d5d48c49e0f542258e7e11, type: 3}
+  lifePrefab: {fileID: 5039730632245748218, guid: da4ab5e12138736408695648ec5d39fc, type: 3}
   lane1SP: {fileID: 25379247}
   lane2SP: {fileID: 920167362}
   lane3SP: {fileID: 534360390}

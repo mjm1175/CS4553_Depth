@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 /***********************************
 Goes on player object
 Called from collision when enemy or bullet hits player
+Also called from collision with a life powerup 
 ***********************************/
 public class LoseLife : MonoBehaviour
 {
@@ -29,6 +30,23 @@ public class LoseLife : MonoBehaviour
 
     private void Start() {
         deathSound = gameObject.GetComponent<AudioSource>();
+    }
+
+    public void AddALife()
+    {
+        switch (GlobalVars.lives)
+        {
+            case 1:
+                GlobalVars.lives++;
+                life2.SetActive(true);
+                break;
+            case 2:
+                GlobalVars.lives++;
+                life3.SetActive(true);
+                break;
+                // if you already have three lives, do nothing
+
+        }
     }
     
     public void Hit(){
