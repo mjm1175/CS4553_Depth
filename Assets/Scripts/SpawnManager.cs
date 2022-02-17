@@ -73,7 +73,7 @@ public class SpawnManager : MonoBehaviour
                     case 's': //shield
                         Instantiate(shieldPrefab, spawnHere.position, rotationVec);
                         break;
-                    case 'l': //life 
+                    case 'l': //life powerup 
                         Instantiate(lifePrefab, spawnHere.position, rotationVec);
                         break;
 

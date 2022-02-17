@@ -12,7 +12,8 @@ public class ShieldOn : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("player immune"); // delete later
+            //Debug.Log("player immune"); // delete later
+            
             GlobalVars.shieldOn = true;
                         
             Destroy(gameObject);

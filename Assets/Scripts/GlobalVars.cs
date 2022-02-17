@@ -10,5 +10,5 @@ public static class GlobalVars
 
     public static bool shieldOn = false;
     public static bool turningOff = false; // for shield stuffs
-    public static float shieldTime = 5f; 
+    public static float shieldTime = 8f; 
 }
