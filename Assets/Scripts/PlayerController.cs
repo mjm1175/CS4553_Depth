@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 0.5f;
     public GameObject bullet;
 
+    public AudioSource shootSound;
+
     void Start(){
         playerAnim = GetComponent<Animator>();
     }
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isRecharging){
+            shootSound.Play();
             GameObject thisBullet = Instantiate(bullet, transform);
             thisBullet.GetComponent<BulletMove>().endPos = new Vector3(transform.position.x, 3.07f, 0);
             isRecharging = true;

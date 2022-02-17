@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9c5bd88b7dbe34ba15f1342fc602cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDeathAudio: {fileID: 1923656408940994656, guid: 690a84949e7b3c446b0e27afa2e96f25, type: 3}
 --- !u!96 &3952971478900810545
 TrailRenderer:
   serializedVersion: 2

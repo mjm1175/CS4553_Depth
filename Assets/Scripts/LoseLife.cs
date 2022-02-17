@@ -22,15 +22,25 @@ public class LoseLife : MonoBehaviour
     public float _time = 0.2f;
     public float _distance = 0.1f;
     public float _delayBetweenShakes = 0f;
+
+    private AudioSource deathSound;
+
+    public AudioSource hitSound;
+
+    private void Start() {
+        deathSound = gameObject.GetComponent<AudioSource>();
+    }
     
     public void Hit(){
+        if (GlobalVars.shieldOn == true) return; // do nothing if shield
         _startPos = transform.position;
         StopAllCoroutines();
         StartCoroutine(Shake());
         switch (GlobalVars.lives)
         {
             case 1:
-                if (GlobalVars.shieldOn == true) break; // don't lose life if shield is on 
+                //if (GlobalVars.shieldOn == true) break; // don't lose life if shield is on 
+                deathSound.Play();
                 GlobalVars.lives--;
                 life3.SetActive(false);
                 StopAllCoroutines();
@@ -40,13 +50,15 @@ public class LoseLife : MonoBehaviour
                 Invoke("LoadGameOver", 1f); // call the LoadGameOver() after a short delay of 1 sec
                 break;
             case 2:
-                if (GlobalVars.shieldOn == true) break;
+                //if (GlobalVars.shieldOn == true) break;
+                hitSound.Play();
                 GlobalVars.lives--;
                 life2.SetActive(false);
                 //Debug.Log("life 2");
                 break;
             case 3:
-                if (GlobalVars.shieldOn == true) break;
+                //if (GlobalVars.shieldOn == true) break;
+                hitSound.Play();
                 GlobalVars.lives--;
                 life1.SetActive(false);
                 //Debug.Log("life 1");

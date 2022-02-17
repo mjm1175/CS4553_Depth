@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 endPos;
     private bool isMoving;
     public float speed = 10.0f;
+
+    private AudioSource deathSound;
     void Start()
     {
         startPos = transform.position;
@@ -22,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
 
         isMoving = true;
         StartCoroutine(Move());
+
+        deathSound = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -48,6 +52,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     public void Die(){
+        deathSound.Play();
         StartCoroutine(DeathScene());
     }
 

@@ -8,10 +8,12 @@ Used when player's bullet hits enemy object
 ***********************************/
 public class EnemyHit : MonoBehaviour
 {
+    //public AudioSource enemyDeathAudio;
+
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Enemy")){
+            //enemyDeathAudio.Play();
             other.gameObject.GetComponent<EnemyMovement>().Die();
-            //Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }

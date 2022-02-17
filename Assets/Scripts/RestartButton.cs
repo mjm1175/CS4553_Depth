@@ -14,5 +14,4 @@ public class RestartButton : MonoBehaviour
         GlobalVars.lives = 3; // reset the number of lives 
         SceneManager.LoadScene("Game");
     }
-
 }
