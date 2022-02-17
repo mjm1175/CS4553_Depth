@@ -9,10 +9,21 @@ Contains coroutine for Trig enemy's firing pattern
 public class TrigBehavior : MonoBehaviour
 {
     public GameObject bullet;
+    private bool startedFiring = false;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TrigFire());
+        //StartCoroutine(TrigFire());
+    }
+
+    private void Update() {
+        if ((transform.position.y < 3.0f) && !startedFiring){
+            StartCoroutine(TrigFire());
+            startedFiring = true;
+        }
+        if (transform.position.y < -3.0f){
+            StopAllCoroutines();
+        }
     }
 
     IEnumerator TrigFire(){

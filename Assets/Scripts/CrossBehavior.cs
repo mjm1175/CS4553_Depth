@@ -10,13 +10,25 @@ public class CrossBehavior : MonoBehaviour
 {
     public GameObject bullet;
 
+    private bool startedFiring = false;
+
     private Vector3 lane1 = new Vector3(-1.51f, -3.0f,0.0f);
     private Vector3 lane2 = new Vector3(0.0f,-3.0f,0.0f);
     private Vector3 lane3 = new Vector3(1.5f,-3.0f,0.0f);
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CrossFire());
+        //StartCoroutine(CrossFire());
+    }
+
+    private void Update() {
+        if ((transform.position.y < 3.0f) && !startedFiring){
+            StartCoroutine(CrossFire());
+            startedFiring = true;
+        }
+        if (transform.position.y < -3.0f){
+            StopAllCoroutines();
+        }
     }
 
     IEnumerator CrossFire(){
