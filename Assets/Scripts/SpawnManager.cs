@@ -30,9 +30,11 @@ public class SpawnManager : MonoBehaviour
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)){
+            GlobalVars.lives = 3; // reset lives before starting new scene
             SceneManager.LoadScene("Start");
         }
     }
+
 
     IEnumerator SpawnItems(){
         // 8 is length of pre-made spawn items and locations (arrays in GlobalVars)
