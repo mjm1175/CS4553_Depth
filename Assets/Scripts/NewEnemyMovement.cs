@@ -12,14 +12,12 @@ public class NewEnemyMovement : MonoBehaviour
     private bool isMoving;
     public float speed = 5.0f;
 
-    private AudioSource deathSound;
     void Start()
     {
 
         isMoving = true;
         //StartCoroutine(Move());
 
-        deathSound = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,25 +29,5 @@ public class NewEnemyMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    public void Die(){
-        deathSound.Play();
-        StartCoroutine(DeathScene());
-    }
-
-    IEnumerator DeathScene(){
-        int i = 0;
-        while(i < 1){
-            Transform explosion = gameObject.transform.GetChild(0);
-            //ParticleSystem explosion = gameObject.GetComponentInChildren<ParticleSystem>();
-            if (explosion != null){
-                explosion.gameObject.SetActive(true);
-            }
-            i++;
-            yield return new WaitForSeconds(0.5f);
-        }
-        Destroy(gameObject);
-        yield return null;
     }
 }

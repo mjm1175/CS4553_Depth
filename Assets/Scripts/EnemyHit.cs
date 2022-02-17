@@ -12,8 +12,9 @@ public class EnemyHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Enemy")){
+            Debug.Log("how bout there");
             //enemyDeathAudio.Play();
-            other.gameObject.GetComponent<NewEnemyMovement>().Die();
+            other.gameObject.GetComponent<GenericEnemyStuff>().Die();
             Destroy(gameObject);
         }
     }
