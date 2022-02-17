@@ -9,7 +9,9 @@ Player loses life when bullet or enemy hits player
 public class BulletHit : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other) {
+        
         if (other.gameObject.CompareTag("Player")){
+            
             other.gameObject.GetComponent<LoseLife>().Hit();
             Destroy(gameObject);
         }

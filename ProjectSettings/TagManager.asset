@@ -9,6 +9,7 @@ TagManager:
   - Life
   - Shield
   - Grenade
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2698698914861817960}
   - component: {fileID: 2698698914861817961}
   - component: {fileID: 2698698914244158325}
-  - component: {fileID: 915853290375581557}
   - component: {fileID: 6390126095210816234}
+  - component: {fileID: 6528952257822389443}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -103,8 +103,28 @@ MonoBehaviour:
   coolDownTime: 1
   speed: 0.5
   bullet: {fileID: 2172692426919332718, guid: b45aeca83be09e446b005cf3c68f6f1b, type: 3}
---- !u!60 &915853290375581557
-PolygonCollider2D:
+  shootSound: {fileID: 0}
+--- !u!114 &6390126095210816234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698698914861817962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9ed21b540c05e47afd1e01f4dcbe59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life1: {fileID: 0}
+  life2: {fileID: 0}
+  life3: {fileID: 0}
+  _time: 0.2
+  _distance: 0.1
+  _delayBetweenShakes: 0
+  hitSound: {fileID: 0}
+--- !u!61 &6528952257822389443
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,29 +146,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.003582662, y: 0.14414945}
-      - {x: -0.14943306, y: -0.13434276}
-      - {x: -0.16, y: -0.16}
-      - {x: 0.16, y: -0.16}
-      - {x: 0.14943306, y: -0.13698444}
-      - {x: -0.001700813, y: 0.14943305}
---- !u!114 &6390126095210816234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698698914861817962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9ed21b540c05e47afd1e01f4dcbe59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life1: {fileID: 0}
-  life2: {fileID: 0}
-  life3: {fileID: 0}
-  _time: 0.2
-  _distance: 0.1
-  _delayBetweenShakes: 0
+  serializedVersion: 2
+  m_Size: {x: 0.32, y: 0.32}
+  m_EdgeRadius: 0
