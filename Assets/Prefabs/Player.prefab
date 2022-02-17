@@ -100,6 +100,7 @@ MonoBehaviour:
   lane1Pos: {fileID: 0}
   lane2Pos: {fileID: 0}
   lane3Pos: {fileID: 0}
+  coolDownTime: 1
   speed: 0.5
   bullet: {fileID: 2172692426919332718, guid: b45aeca83be09e446b005cf3c68f6f1b, type: 3}
 --- !u!60 &915853290375581557
@@ -148,3 +149,6 @@ MonoBehaviour:
   life1: {fileID: 0}
   life2: {fileID: 0}
   life3: {fileID: 0}
+  _time: 0.2
+  _distance: 0.1
+  _delayBetweenShakes: 0
